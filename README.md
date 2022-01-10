@@ -26,10 +26,14 @@ Twitterやインスタグラムなど既に存在しますが、機能が多す�
 主に音楽関連の好きなものの交流で活用していただきたいです。
 
 
+## アプリケーション詳細設計
+<https://docs.google.com/spreadsheets/d/1vHS4a9_eBI4LQg8dGy35sZviXSpOEoCgJ49LDzS9Vfg/edit?usp=sharing>
 
+## テーブル定義書
+<https://docs.google.com/spreadsheets/d/1WKv_04H2L-QLNMUldraumaiEBqwqiMsxcvz8Xre9kcE/edit?usp=sharing>
 
-## 設計書
-<...>
+## WBSシート
+<https://docs.google.com/spreadsheets/d/1Mm_MuakwwzeK0AEwElmf4dmzxjMTqYKzWJJ-uQWIo0s/edit?usp=sharing>
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1gsp29IvQt7_K_2O_Wqr_CF77ED0U1EI5jjSD_y02_4g/edit?usp=sharing>
