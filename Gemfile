@@ -67,3 +67,4 @@ gem 'rename'
 gem "refile", require: "refile/rails", github: 'manfe/refile' #画像投稿
 gem "refile-mini_magick"
 gem 'kaminari','~> 1.2.1'
+gem 'font-awesome-sass', '~> 5.13'
