@@ -1,3 +1,34 @@
+<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+<table class='table'>
+  <tbody>
+  <tr>
+	  <th>name</th>
+	  <th><%= @user.name %></th>
+  </tr>
+  <tr>
+	  <th>introduction</th>
+	  <th><%= @user.introduction %></th>
+  </tr>
+  <tr>
+    <th>フォロー数</th>
+    <th><%= link_to @user.followings.count, user_followings_path(@user) %></th>
+    
+  </tr>
+  <tr>
+    <th>フォロワー数</th>
+    <th><%= link_to @user.followers.count, user_followers_path(@user) %></th>
+  </tr>
+  <td>
+    <% if current_user.following?(@user) %>
+  <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete, class: "btn btn-primary" %>
+<% else %>
+  <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
+<% end %>
+
+  </td>
+ </tbody>
+</table>
+
 <div>
   <h3><%= @user.name %></h3>
   <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
@@ -12,7 +43,7 @@
   <%= link_to post_image_path(post_image.id) do %>
     <%= attachment_image_tag post_image, :image %>
   <% end %>
-  <p>投稿ユーザー画像：<%= image_tag('sample-author1.jpg') %></p>
+  <p>投稿ユーザー画像：<%= image_tag('no_image.jpg') %></p>
   <p>タイトル：<%= post_image.title %></p>
   <p>説明：<%= post_image.caption %></p>
   <p>ユーザーネーム：<%= post_image.user.name %></p>
