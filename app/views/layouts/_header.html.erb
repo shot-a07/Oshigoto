@@ -1,29 +1,23 @@
-<header class="header">
-  <div class="navber navber-dark bg-dark shadow-sm">
-    <div class="container d-flex justify-content-between">
-      <div class="navber-brand d-flex align -items-center">
-       
-          <li>
-            <%= link_to 'Washoku',root_path %>
-          </li>
-     
-      </div>
-      <div class="header-menu-wrap">
-          <ul class="nav-list">
+
+  <nav class="navbar navbar-expand-lg navbar-light">
+     <ul class="navbar-nav  mr-auto">
+       <div class="logo_area">
+          <a class="navbar-brand" href="/"><%= image_tag'logo.png', class: "logo" %></a>
+       </div>
+     </ul>
+     <ul class="navbar-nav justify-content-around">
                 <% if user_signed_in? %>
-                  <li class="nav-list-item"><%= link_to ' User',user_path(current_user),class: 'fas fa-home nav-link text-light' %></li>
-                  <li class="nav-list-item"><%= link_to ' Eat',post_images_path, class: "fas fa-utensils"%></li>
-                  <li class="nav-list-item"><%= link_to 'Form', new_post_image_path,  class: "fas fa-camera-retro"%></li>
-                  <li class="nav-list-item"><%= link_to ' logout', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %></li>
+                  <li class="nav-item"><%= link_to 'User', user_path(current_user), class: 'fas fa-home fa-lg nav-link ' %></li>
+                  <li class="nav-item"><%= link_to 'Eat', post_images_path, class: 'fas fa-utensils fa-lg nav-link ' %></li>
+                  <li class="nav-item"><%= link_to 'Form', new_post_image_path, class: 'fas fa-camera-retro fa-lg nav-link ' %></li>
+                  <li class="nav-item"><%= link_to 'logout', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt fa-lg nav-link ' %></li>
                 <% else %>
-                  <li class="nav-list-item"><%= link_to ' Home',root_path,class: 'fas fa-home nav-link text-light' %></li>
-                  <li class="nav-list-item"><%= link_to ' About',home_about_path,class: 'fas fa-link nav-link text-light' %></li>
-                  <li class="nav-list-item"><%= link_to ' sign up', new_user_registration_path,class: 'fas fa-user-plus nav-link text-light' %></li>
-                  <li class="nav-list-item"><%= link_to ' login', new_user_session_path ,class: 'fas fa-sign-in-alt nav-link text-light'%></li>
+                  <li class="nav-item"><%= link_to 'Home',root_path,class: 'fas fa-home fa-lg nav-link ' %></li>
+                  <li class="nav-item"><%= link_to 'About',home_about_path,class: 'fas fa-link fa-lg nav-link ' %></li>
+                  <li class="nav-item"><%= link_to 'sign up', new_user_registration_path,class: 'fas fa-user-plus fa-lg nav-link ' %></li>
+                  <li class="nav-item"><%= link_to 'login', new_user_session_path ,class: 'fas fa-sign-in-alt fa-lg nav-link '%></li>
                 <% end %>
+                <%= render 'searches/search' %>
           </ul>
-      </div>
-      </div>
-    </div>
-  </div>
-</header>
+
+  </nav>

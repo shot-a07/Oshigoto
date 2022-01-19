@@ -1,0 +1,31 @@
+.breadcrumb__item {
+    width: 100%
+}
+
+.navbar {
+    background-color: #C1E3BD;
+}
+
+.navbar-brand {
+    font-size: 64px;
+}
+
+.nav-item {
+    color: black;
+}
+
+footer {
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  line-height: 120px;
+  background-color: #C1E3BD;
+}
+
+.footer-text {
+  color: #fff;
+}
+
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
