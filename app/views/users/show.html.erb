@@ -1,51 +1,58 @@
-
-<table class='table'>
-  <tbody>
-  <tr>
-	  <th>name</th>
-	  <th><%= @user.name %></th>
-  </tr>
-  <tr>
-	  <th>introduction</th>
-	  <th><%= @user.introduction %></th>
-  </tr>
-  <tr>
-    <th>フォロー数</th>
-    <th><%= link_to @user.followings.count, user_followings_path(@user) %></th>
-
-  </tr>
-  <tr>
-    <th>フォロワー数</th>
-    <th><%= link_to @user.followers.count, user_followers_path(@user) %></th>
-  </tr>
-  <td>
-    <% if current_user.following?(@user) %>
-  <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete, class: "btn btn-primary" %>
-<% else %>
-  <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
-<% end %>
-
-  </td>
- </tbody>
-</table>
+<div class="container">
+  <header class="row ">
+    <div class="col-xs-6 col-lg-4">
+      <div class="image-circle">
+        <% if @user.id == current_user.id %>
+            <%= link_to edit_user_path(@user) do %>
+            <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback: "no_image.jpg" %>
+            <% end %>
+        <% else %>
+            <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback: "no_image.jpg" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-6 col-lg-8">
+      <table class='table'>
+              <tr>
+              	  <td class="user-name">＠<%= @user.name %></td>
+                  <td>フォロー数<%= link_to @user.followings.count, user_followings_path(@user) %>人</td>
+                  <td>フォロワー数<%= link_to @user.followers.count, user_followers_path(@user) %>人</td>
+                  <td>
+                    <% if current_user.following?(@user) %>
+                      <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete, class: "btn btn-primary" %>
+                    <% else %>
+                      <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
+                    <% end %>
+                  </td>
+              </tr>
+              <tr height="240px">
+                  <td><%= @user.introduction %></td>
+              </tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    
+                  </td>
+         </tbody>
+    </table></div>
+    
+  </header>
+</div>
 
 <div>
-  <h3><%= @user.name %></h3>
-  <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
+  
 </div>
 
 
 <% @post_images.each do |post_image| %>
-<div>
+<div　class="post_index">
   <%= link_to post_image_path(post_image.id) do %>
     <%= attachment_image_tag post_image, :image, :fill, 150, 150 %>
   <% end %>
   <p>投稿ユーザー画像：<%= attachment_image_tag post_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
   <p>タイトル：<%= post_image.title %></p>
   <p>説明：<%= post_image.caption %></p>
-  <p>ユーザーネーム：<%= post_image.user.name %></p>
 </div>
 <% end %>
 <%= paginate @post_images %>

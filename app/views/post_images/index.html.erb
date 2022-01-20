@@ -1,9 +1,9 @@
-
-
-
 <% @post_images.each do |post_image| %>
 <div>
-    <span><%= attachment_image_tag post_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></span>
+    <%= link_to user_path(post_image.user.id) do %>
+        <span><%= attachment_image_tag post_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></span>
+    <% end %>
+    
     <strong>@<%= post_image.user.name %></strong>
 </div>
 <div>
