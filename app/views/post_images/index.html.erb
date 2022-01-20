@@ -8,16 +8,17 @@
 </div>
 <div>
   <%= link_to post_image_path(post_image.id) do %>
- 
+
     <%= attachment_image_tag post_image, :image, :fill, 200, 200 %>
   <% end %>
-  
-      
+
+
       <p><%= post_image.title %></p>
       <p>説明：<%= post_image.caption %></p>
       <p>投稿者：<%= post_image.user.name %></p>
+      <p id="favorite_buttons_<%= post_image.id %>"><%= render "favorites/favorite-btn", post_image: post_image %></p>
       <p><%= link_to "コメント#{post_image.post_comments.count}件", post_image_path(post_image.id) %>をすべて見る</p>
-  
+
 </div>
 <% end %>
 <%= paginate @post_images %>
