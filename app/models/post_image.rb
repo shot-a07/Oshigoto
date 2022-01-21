@@ -1,17 +1,19 @@
 class PostImage < ApplicationRecord
   
-   belongs_to :user
-   attachment :image
-   has_many :post_comments, dependent: :destroy
-   has_many :favorites, dependent: :destroy
+   belongs_to :user                              # ユーザとの関係
+   attachment :image                             # 画像表示
+   has_many :post_comments, dependent: :destroy  # コメント機能
+   has_many :favorites, dependent: :destroy      # いいね機能
    
+   
+   is_impressionable # 閲覧数確認のための記載　
    
    def favorited_by?(user)
       favorites.where(user_id: user.id).exists?
    end
    
    
-    def self.looks(search, word)
+    def self.looks(search, word)                 # 検索
      	if search == "perfect_match"
      		@post_image = PostImage.where("title LIKE?", "#{word}")
      	elsif search == "forward_match"
