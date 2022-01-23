@@ -1,21 +1,27 @@
-<%= form_with model: @chat do |f| %>
-    <%= f.text_field :message %>
-    <%= f.hidden_field :room_id %>
-    <%= f.submit class: "btn btn-primary " %>
-<% end %>
-<table>
-    <thead>
-        <tr>
-            <td>User</td>
-            <td>text</td>
-        </tr>
-    </thead>
-    <tbody>
-        <% @chats.each do |chat| %>
-            <tr>
-                <td><%= chat.user.name %></td>
-                <td><%= chat.message %></td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+              <%= form_with model: @chat do |f| %>
+                  <%= f.text_field :message %>
+                  <%= f.hidden_field :room_id %>
+                  <%= f.submit class: "btn btn-primary " %>
+              <% end %>
+              <table>
+                  <thead>
+                      <tr>
+                          <td>User</td>
+                          <td>Text</td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <% @chats.each do |chat| %>
+                          <tr>
+                              <td><%= chat.user.name %></td>
+                              <td><%= chat.message %></td>
+                          </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+    </div>
+  </div>
+</div>
