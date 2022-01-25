@@ -1,0 +1,4 @@
+<%= form_with(model:[@post_image, @post_comment], remo: true) do |f| %>
+  <%= f.text_area :comment, rows:'2',placeholder: "コメントを書く"  %>
+  <%= f.submit "送信する", class: "btn btn-primary" %>
+　<% end %>

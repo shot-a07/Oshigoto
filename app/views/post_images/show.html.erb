@@ -1,34 +1,41 @@
-<div>
-  <%= attachment_image_tag @post_image, :image %>
-  <p>ショップ名：<%= @post_image.title %></p>
-  <p>説明：<%= @post_image.caption %></p>
-  <p>ユーザーネーム：<%= @post_image.user.name %></p>
-  <p>投稿日時：<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
-  <!--　コメントの実装-->
-  <% if @post_image.user == current_user %>
-    <%= link_to "削除", post_image_path(@post_image), method: :delete %>
-  <% end %>
-
-</div>
-
-<div>
-     <p>コメント件数:<%= @post_image.post_comments.count %></p>
-     <% @post_image.post_comments.each do |post_comment| %>
-     <p><%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
-     <%= post_comment.user.name %>
-     <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-     <% if post_comment.user == current_user %>
-     <div>
-       <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
+<div class="container">
+    <div class="row ">
+        <div class="col-xs-5 col-lg-4">
+    
+            <div class="float-center">
+              <%= attachment_image_tag @post_image, :image, :fill, 400, 400 %>
+            </div>
+        </div>
+        <div class="col-xs-7 col-lg-6 mx-auto">
+                  <p>title：<%= @post_image.title %></p>
+                  <p>text：<%= @post_image.caption %></p>
+                  <p>@<%= @post_image.user.name %></p>
+                  <p>day:<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
+                  <p>閲覧数 : <%= @post_image.impressionist_count %></p>
+              <!--　コメントの実装-->
+              <% if @post_image.user == current_user %>
+                <%= link_to "記事を削除", post_image_path(@post_image), method: :delete, class: "btn btn-danger" %>
+              <% end %>
+    
+            <div class="float-right">
+                <div>
+                    <div id='post_comment_list'>
+                    <% @post_image.post_comments.each do |post_comment| %>
+                        <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+                        <%= post_comment.user.name %>
+                        <%= post_comment.comment %>
+                        <% if post_comment.user == current_user %>
+                            <div>
+                                <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, remote: true %>
+                            </div>
+                        <% end %>
+                    <% end %>
+            </div>
+                    <%= render 'post_comments/post_comment', post_image: @post_image, post_comment: @post_comment %>
+                    <%= link_to :back do %>
+                      <button>戻る</button>
+                    <% end %>
+                </div>
+            </div>
      </div>
-     <% end %>
-  <% end %>
-
-</div>
-
-<div>
-  <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-<% end %>
 </div>
