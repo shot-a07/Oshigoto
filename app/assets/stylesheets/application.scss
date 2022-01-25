@@ -15,10 +15,6 @@
  */
 
 
-.breadcrumb__item {
-    width: 100%
-}
-
 .navbar {
     background-color: #C1E3BD;
 }
@@ -74,6 +70,19 @@ footer {
   color: #fff;
 }
 
+.top-container {
+  width: 100%; /* 横幅いっぱい */
+  height: 550px; /* 高さ300px */
+  background-image: image-url('panda.jpg');
+  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
+  background-position: bottom; /* 背景画像を中央に配置 */
+}
+
+.row-top {
+  width: 100%;
+  height: 250px;
+  text-align: center;
+}
 .new_blog {
   border-bottom: 8px solid #f7f7f7;
   text-align: left;
