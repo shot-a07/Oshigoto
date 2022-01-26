@@ -73,12 +73,13 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 
-gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
-
 gem 'impressionist', '~>1.6.1'
 
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
+
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
