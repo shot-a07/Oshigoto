@@ -14,7 +14,9 @@
  *= require_self
  */
 
-
+body {
+  padding-bottom: 150px;
+}
 .navbar {
     background-color: #C1E3BD;
 }
@@ -51,6 +53,16 @@
 .main-visual-name {
   margin-top: 70px; /* 上側の外側の余白 */
   color: #fff; /* 文字色を白に変更 */
+}
+
+div.container-m {
+  margin-top: 80px;
+}
+
+.col-12 {
+  margin:20px 0px;
+  height:100px;
+  line-height:100px;
 }
 
 .Eat-img {
