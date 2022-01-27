@@ -1,35 +1,38 @@
 <div class="top-container">
     <div class="row-top">
-      <div class="float-center">
-        <div class="col-12">
+        <div class="col-md-12">
             <div class="mx-auto test-box">
-        
-            <h1>和歌山の<strong>おいしい</strong>を探そう！</h1>
-            <h3>～和歌山にいこらよ～</h3>
+
+              <h1>和歌山の<strong>おいしい</strong>を探そう！</h1>
+              <h3>～和歌山にいこらよ～</h3>
+            </div>
         </div>
-      </div>
     </div>
     <h2 class="new_blog">いいねが多い投稿</h2>
+  <div class="container pb-3">
     <div class="row">
+
         <!--配列の1つ目から順に1位、２位と表示される-->
+
         <% @post_like_ranks.each.with_index(1) do |post_image,i| %>
-        <div class="col-lg-3 col-md-6 mb-4">
-
-          第<%= i %>位
-            <div>
-                <%= link_to user_path(post_image.user.id) do %>
-                    <span><%= attachment_image_tag post_image.user, :profile_image, :fill, 60, 60, class: 'img', fallback: "no_image.jpg", size: "60x60" %></span>
-                <% end %>
-                <strong>@<%= post_image.user.name %></strong>
-            </div>
-
-            <div>
-                <%= link_to post_image_path(post_image.id) do %>
-
-                  <div class="Eat-img"><%= attachment_image_tag post_image, :image, :fill, 200, 200, class: 'post_img' %></div>
-                <% end %>
-            </div>
+              <div class="col-md-4 col-4 col-lg-4 col-xs-4 col-xl-4 col-sm-4">
+                第<%= i %>位
+                  <div>
+                      <%= link_to user_path(post_image.user.id) do %>
+                          <span><%= attachment_image_tag post_image.user, :profile_image, :fill, 60, 60, class: 'img', fallback: "no_image.jpg", size: "60x60" %></span>
+                      <% end %>
+                      <strong>@<%= post_image.user.name %></strong>
+                  </div>
+      
+                  <div>
+                      <%= link_to post_image_path(post_image.id) do %>
+      
+                        <div class="Eat-img"><%= attachment_image_tag post_image, :image, :fill, 200, 200, class: 'post_img' %></div>
+                      <% end %>
+                  </div>
+              </div>
         <% end %>
-        </div>
+
     </div>
+  </div>
 </div>

@@ -5,7 +5,9 @@ class PostImage < ApplicationRecord
    has_many :post_comments, dependent: :destroy  # コメント機能
    has_many :favorites, dependent: :destroy      # いいね機能
    
-   
+   validates :title, presence: true
+   validates :image, presence: true
+    
    is_impressionable # 閲覧数確認のための記載　
    
    def favorited_by?(user)
