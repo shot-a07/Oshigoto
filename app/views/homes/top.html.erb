@@ -23,10 +23,10 @@
                       <% end %>
                       <strong>@<%= post_image.user.name %></strong>
                   </div>
-      
+
                   <div>
                       <%= link_to post_image_path(post_image.id) do %>
-      
+
                         <div class="Eat-img"><%= attachment_image_tag post_image, :image, :fill, 200, 200, class: 'post_img' %></div>
                       <% end %>
                   </div>

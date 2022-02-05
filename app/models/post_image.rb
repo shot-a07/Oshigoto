@@ -4,6 +4,7 @@ class PostImage < ApplicationRecord
    attachment :image                             # 画像表示
    has_many :post_comments, dependent: :destroy  # コメント機能
    has_many :favorites, dependent: :destroy      # いいね機能
+   has_many :tags, dependent: :destroy
    
    validates :title, presence: true
    validates :image, presence: true

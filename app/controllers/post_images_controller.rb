@@ -10,11 +10,16 @@ class PostImagesController < ApplicationController
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
     if @post_image.save
+      # 画像認識機能
+      tags = Vision.get_image_data(@post_image.image)
+      tags.each do |tag|
+        @post_image.tags.create(name: tag)
+       # binding.pry
+    end
       redirect_to post_images_path
     else
       render :new
     end
-
   end
 
   def index
