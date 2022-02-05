@@ -5,20 +5,23 @@
                 <div class="col-lg-6">
                       <%= attachment_image_tag @post_image, :image, :fill, 400, 400, class: "post_img" %>
                 </div>
-            
+
                 <div class="col-lg-6">
                       <p>title：<%= @post_image.title %></p>
                       <p>text：<%= @post_image.caption %></p>
                       <p>@<%= @post_image.user.name %></p>
                       <p>day:<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
                       <p>閲覧数 : <%= @post_image.impressionist_count %></p>
+                        <% @post_image.tags.each do |tag| %>
+                          <span class="label"><%= tag.name %></span>
+                        <% end %>
                     <% if @post_image.user == current_user %>
                         <%= link_to "記事を削除", post_image_path(@post_image), method: :delete, class: "btn btn-danger" %>
                     <% end %>
                 </div>
             </div>
         </div>
-        <div class="side col-lg-3 col-md-3 col-sm-3">       
+        <div class="side col-lg-3 col-md-3 col-sm-3">
               <!--　コメントの実装-->
                     <div id='post_comment_list'>
                         <% @post_image.post_comments.each do |post_comment| %>
@@ -31,8 +34,8 @@
                         <% end %>
                     </div>
                     <%= render 'post_comments/post_comment', post_image: @post_image, post_comment: @post_comment %>
-                    
-                    
+
+
                     <!-- 戻るボタン -->
                     <%= link_to :back do %>
                       <button>戻る</button>
