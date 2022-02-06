@@ -1,0 +1,13 @@
+#config/google_cloud.json
+{
+ "type": "service_account",
+ "project_id": "My First Project",
+ "private_key_id": "04e00XXXXXXXXX",
+ "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBg...p0Tg7WibPz76wqUFpGj/qshvY2pqFc2H94\nxkgZT44GHXagW5WOW5ofXJo=\n-----END PRIVATE KEY-----\n",
+ "client_email": "random@random.iam.gserviceaccount.com",
+ "client_id": "111111111111111",
+ "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+ "token_uri": "https://oauth2.googleapis.com/token",
+ "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+ "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/random%random.iam.gserviceaccount.com"
+}

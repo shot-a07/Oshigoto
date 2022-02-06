@@ -83,5 +83,6 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
-
-gem 'dotenv-rails'
+ #以下APi使用の為
+gem "google-cloud"
+gem "google-cloud-translate"

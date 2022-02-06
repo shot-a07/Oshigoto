@@ -13,9 +13,8 @@ class PostImagesController < ApplicationController
       # 画像認識機能
       tags = Vision.get_image_data(@post_image.image)
       tags.each do |tag|
-        @post_image.tags.create(name: tag)
-       # binding.pry
-    end
+        @post_image.tags.create(name: Transration.translate(tag))
+      end
       redirect_to post_images_path
     else
       render :new
