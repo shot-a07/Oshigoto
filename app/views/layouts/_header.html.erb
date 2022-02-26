@@ -1,23 +1,23 @@
 
   <nav class="navbar navbar-expand-md navbar-light">
-     <ul class="navbar-nav  mr-auto">
-       <div class="logo_area">
-          <a class="navbar-brand" href="/"><%= image_tag'logo.png', class: "logo" %></a>
-       </div>
-     </ul>
-     <ul class="navbar-nav justify-content-around">
-                <% if user_signed_in? %>
-                  <li class="nav-item"><%= link_to 'MyPage', user_path(current_user), class: 'fas fa-home fa-lg nav-link ' %></li>
-                  <li class="nav-item"><%= link_to 'Eat', post_images_path, class: 'fas fa-utensils fa-lg nav-link ' %></li>
-                  <li class="nav-item"><%= link_to 'Form', new_post_image_path, class: 'fas fa-camera-retro fa-lg nav-link ' %></li>
-                  <li class="nav-item"><%= link_to 'logout', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt fa-lg nav-link ' %></li>
-                <% else %>
-                  <li class="nav-item"><%= link_to 'Home',root_path,class: 'fas fa-home fa-lg nav-link ' %></li>
-                  <li class="nav-item"><%= link_to 'About',home_about_path,class: 'fas fa-link fa-lg nav-link ' %></li>
-                  <li class="nav-item"><%= link_to 'sign up', new_user_registration_path,class: 'fas fa-user-plus fa-lg nav-link ' %></li>
-                  <li class="nav-item"><%= link_to 'login', new_user_session_path ,class: 'fas fa-sign-in-alt fa-lg nav-link '%></li>
-                <% end %>
-                <%= render 'searches/search' %>
-     </ul>
+    <ul class="navbar-nav  mr-auto">
+      <div class="logo_area">
+        <a class="navbar-brand" href="/"><%= image_tag'logo.png', class: "logo" %></a>
+      </div>
+    </ul>
+    <ul class="navbar-nav justify-content-around">
+      <% if user_signed_in? %>
+        <li class="nav-item"><%= link_to 'MyPage', user_path(current_user), class: 'fas fa-home fa-lg nav-link ' %></li>
+        <li class="nav-item"><%= link_to 'Eat', post_images_path, class: 'fas fa-utensils fa-lg nav-link ' %></li>
+        <li class="nav-item"><%= link_to 'Form', new_post_image_path, class: 'fas fa-camera-retro fa-lg nav-link ' %></li>
+        <li class="nav-item"><%= link_to 'logout', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt fa-lg nav-link ' %></li>
+      <% else %>
+        <li class="nav-item"><%= link_to 'Home',root_path,class: 'fas fa-home fa-lg nav-link ' %></li>
+        <li class="nav-item"><%= link_to 'About',home_about_path,class: 'fas fa-link fa-lg nav-link ' %></li>
+        <li class="nav-item"><%= link_to 'sign up', new_user_registration_path,class: 'fas fa-user-plus fa-lg nav-link ' %></li>
+        <li class="nav-item"><%= link_to 'login', new_user_session_path ,class: 'fas fa-sign-in-alt fa-lg nav-link '%></li>
+      <% end %>
+      <%= render 'searches/search' %>
+    </ul>
 
   </nav>
