@@ -6,6 +6,7 @@ require "google/cloud/translate"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module SmartFitness
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
