@@ -1,0 +1,7 @@
+<% unless @chat.errors.any? %>
+  $('#chat_message_errors').empty()
+  $('#chat_messages').prepend("<%= j(render partial: 'chat_message', locals: {chat: @chat}) %>")
+  $('#chat_message').val("")
+<% else %>
+  $('#chat_message_errors').html("<%= j(render partial: 'error_messages', locals: {model: @chat}) %>")
+<% end %>

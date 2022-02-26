@@ -1,0 +1,5 @@
+<tr>
+  <td>@<%= chat.user.name %></td>
+  <td><%= chat.message %></td>
+  <td><%= chat.created_at.in_time_zone('Tokyo').strftime("%Y/%m/%d %H:%M") %></td>
+</tr>
