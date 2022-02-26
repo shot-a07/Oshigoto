@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]  #いいね機能
   end
 
+  post '/guest', to: 'guest_sessions#guest_login'  #ゲストログイン
+
   resources :users, only: [:show, :edit, :update] do
 
     resource :relationships, only: [:create, :destroy] # follow関連
