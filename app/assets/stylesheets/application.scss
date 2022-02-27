@@ -14,11 +14,14 @@
  *= require_self
  */
 
+
+
 body {
-  padding-bottom: 122px;
+  padding-bottom: 60px;
 }
 .navbar {
     background-color: #C1E3BD;
+    height: 200px;
 }
 
 .navbar-brand {
@@ -31,19 +34,20 @@ body {
 
 .main-visual {
   width: 100%; /* 横幅いっぱい */
-  height: 500px; /* 高さ300px */
+  height: 700px; 
   background-image: image-url('aridagawa.jpg');
   background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
   background-position: center; /* 背景画像を中央に配置 */
   font-family: 'Potta One', cursive;
+  padding-bottom: 0px;
 }
 
 .main-visual-content {
   width: 40%; /* 横幅40% */
-  height: 500px; /* 親の高さに揃える */
+  height: 700px; /* 親の高さに揃える */
   background-color: rgba(0, 0, 0, 0.5); /* 背景色を半透明の黒にする */
   text-align: center; /* 文字を中央揃えにする */
-  padding-top: 105px; /* 上側の内側余白で垂直方向の位置を調整 */
+  padding-top: 120px; /* 上側の内側余白で垂直方向の位置を調整 */
 }
 
 .main-visual-text {
@@ -58,6 +62,7 @@ body {
 div.container-m {
   margin-top: 80px;
 }
+
 .label {
   background-color: #337ab7;   /*APIタグ表示 */
   font-weight: 500;
@@ -82,21 +87,10 @@ div.container-m {
   height: 200px;
   object-fit: cover;
 }
-footer {
-  width: 100%;
-  height: 120px;
-  text-align: center;
-  line-height: 120px;
-  background-color: #C1E3BD;
-}
-
-.footer-text {
-  color: #fff;
-}
 
 .top-container {
   width: 100%;
-  height: 100%; /* 高さ550px */
+  height: 700px;
   background-image: image-url('panda.jpg');
   background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
   background-position: center; /* 背景画像を中央に配置 */
@@ -111,6 +105,9 @@ footer {
     justify-content: center;
     align-items: center;
 }
+/*.users-index {
+  margin-top: 30px;
+}*/
 .new_blog {
   width: 80%;
   margin-left: 150px;
@@ -145,7 +142,7 @@ footer {
 }
 .pagination {
   text-align: center;
-  padding-top: 20px;
+  /*padding-top: 20px;*/
   display:block !important;
 }
 
@@ -157,7 +154,22 @@ footer {
   color: #fff;
   background-color: #acabab;
   border-radius: 3px;
+}
 
+.chat {
+  margin-top: 30px;
+}
+
+footer {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  background-color: #C1E3BD;
+}
+
+.footer-text {
+  color: #fff;
 }
 
 @import "bootstrap";
