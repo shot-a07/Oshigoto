@@ -3,7 +3,6 @@ class PostImagesController < ApplicationController
 
   def new
     @post_image = PostImage.new
-
   end
 
   def create
@@ -23,17 +22,25 @@ class PostImagesController < ApplicationController
 
   def index
     @post_images = PostImage.page(params[:page]).per(4).order('id DESC')
-
-
   end
 
   def show
     @post_image = PostImage.find(params[:id])
     @post_comment = PostComment.new
     impressionist(@post_image, nil, unique: [:session_hash.to_s])  # 閲覧数確認のため追加
-
   end
 
+
+  def edit
+    @post_image = PostImage.find(params[:id])
+  end
+  
+  def update
+    post_image = PostImage.find(params[:id])
+    post_image.update(post_image_params)
+    redirect_to post_image_path(post_image)
+  end
+  
   def destroy
     @post_image = PostImage.find(params[:id])
     @post_image.destroy

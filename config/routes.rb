@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
   post '/post_images', to:'post_images#create', as:'images_create'
-  resources :post_images, only: [:new, :index, :show, :destroy] do
+  resources :post_images, only: [:new, :index, :show, :edit, :update, :destroy] do
     resources :post_comments, only: [:create, :destroy]
 
     resource :favorites, only: [:create, :destroy]  #いいね機能

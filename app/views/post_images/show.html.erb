@@ -17,8 +17,10 @@
           <% end %></p>
           <p class="AI-message">画像認識によりタグが挿入されます</p>
         <% if @post_image.user == current_user %>
+          <%= link_to "編集", edit_post_image_path(@post_image),class: "btn btn-primary" %>
           <%= link_to "記事を削除", post_image_path(@post_image), method: :delete, class: "btn btn-danger" %>
         <% end %>
+        
         </div>
       </div>
     </div>
